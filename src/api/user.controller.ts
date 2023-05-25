@@ -1,8 +1,7 @@
-import { Request } from 'express';
-import { logger } from '../libs/winston';
+import { Request, Response } from 'express';
+import { userService } from '../services';
 
-export const userController = (req: Request) => {
-  const { body } = req;
-  logger.info('message received', { body });
-  return { message: 'ok' };
+export const userController = (req: Request, res: Response) => {
+  const result = userService(req);
+  res.status(200).send(result);
 };
