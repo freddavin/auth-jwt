@@ -1,0 +1,6 @@
+import config from 'config';
+import { start } from './libs/service/start';
+
+const port = config.get<number>('API_PORT') || 3000;
+
+start(port);
