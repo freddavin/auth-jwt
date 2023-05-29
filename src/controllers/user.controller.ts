@@ -1,12 +1,17 @@
 import { Request, Response } from 'express';
-import { findUsers, findUser } from '../services/user.service';
+import { findUsers, findUser, createUser } from '../services/user.service';
 
-export const getUsersHandler = (req: Request, res: Response) => {
-  const result = findUsers(req);
+export const getUsersHandler = async (_: Request, res: Response) => {
+  const result = await findUsers();
   res.status(200).send(result);
 };
 
-export const getUserHandler = (req: Request, res: Response) => {
-  const result = findUser(req.params);
+export const getUserHandler = async (req: Request, res: Response) => {
+  const result = await findUser(req.params);
   res.status(200).send(result);
+};
+
+export const createUserHandler = async (req: Request, res: Response) => {
+  const result = await createUser(req.body);
+  res.status(201).send(result);
 };
