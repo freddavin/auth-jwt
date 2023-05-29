@@ -7,8 +7,10 @@ Projeto com objetivo de exercitar e aplicar alguns dos meus aprendizados de dese
 - Node.js
 - Typescript
 - Express
-- MongoDb
+- Mongoose
 - Winston
+- Node-Config
+-
 
 ### A serem implementadas posteriormente
 
