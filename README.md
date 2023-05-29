@@ -10,7 +10,7 @@ Projeto com objetivo de exercitar e aplicar alguns dos meus aprendizados de dese
 - Mongoose
 - Winston
 - Node-Config
--
+- Bcrypt
 
 ### A serem implementadas posteriormente
 

@@ -1,4 +1,5 @@
 import { v4 as randomUUID } from 'uuid';
+import { hash } from 'bcrypt';
 import { IUser, User } from '../models/user';
 import { logger } from '../libs/winston';
 
@@ -17,11 +18,14 @@ export const findUser = async (params: Record<string, any>) => {
 
 export const createUser = async (body: Record<string, any>) => {
   const { name, email, password } = body;
+
+  const hashPassword = await hash(password, 10);
+
   const user: IUser = {
     id: randomUUID(),
     name,
     email,
-    password,
+    password: hashPassword,
   };
 
   const insertedUser = await User.create(user);
