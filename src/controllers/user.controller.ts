@@ -1,7 +1,12 @@
 import { Request, Response } from 'express';
-import { userService } from '../services';
+import { findUsers, findUser } from '../services/user.service';
 
-export const userController = (req: Request, res: Response) => {
-  const result = userService(req);
+export const getUsersHandler = (req: Request, res: Response) => {
+  const result = findUsers(req);
+  res.status(200).send(result);
+};
+
+export const getUserHandler = (req: Request, res: Response) => {
+  const result = findUser(req.params);
   res.status(200).send(result);
 };
