@@ -1,6 +1,6 @@
 import express from 'express';
 import { logger } from '../winston';
-import { routes } from '../../api';
+import { routes } from '../../routes';
 
 export const bootstrapExpress = (port: number) => {
   const app = express();
