@@ -11,6 +11,7 @@ Projeto com objetivo de exercitar e aplicar alguns dos meus aprendizados de dese
 - Winston
 - Node-Config
 - Bcrypt
+- Jsonwebtoken
 
 ### A serem implementadas posteriormente
 

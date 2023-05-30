@@ -12,6 +12,10 @@ export const getUserHandler = async (req: Request, res: Response) => {
 };
 
 export const createUserHandler = async (req: Request, res: Response) => {
-  const result = await createUser(req.body);
-  res.status(201).send(result);
+  try {
+    const result = await createUser(req.body);
+    res.status(201).send(result);
+  } catch (e) {
+    res.status(400).send({ error: e });
+  }
 };

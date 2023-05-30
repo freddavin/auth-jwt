@@ -19,6 +19,12 @@ export const findUser = async (params: Record<string, any>) => {
 export const createUser = async (body: Record<string, any>) => {
   const { name, email, password } = body;
 
+  const userFound = await User.findOne({ email });
+
+  if (userFound) {
+    throw new Error('User already exists');
+  }
+
   const hashPassword = await hash(password, 10);
 
   const user: IUser = {
