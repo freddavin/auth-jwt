@@ -1,7 +1,7 @@
 import { bootstrapExpress } from '../express';
 import { bootstrapMongoDb } from '../mongodb';
 
-export const start = (port: number) => {
+export const server = (port: number) => {
   bootstrapMongoDb();
   bootstrapExpress(port);
 };

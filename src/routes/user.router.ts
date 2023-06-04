@@ -1,16 +1,14 @@
-import express from 'express';
+import { Router } from 'express';
 import {
-  getUsersHandler,
-  getUserHandler,
+  readUsersHandler,
+  readUserHandler,
   createUserHandler,
+  deleteUserHandler,
 } from '../controllers/user.controller';
-import { authHandler } from '../controllers/auth.controller';
 
-export const userRouter = express.Router();
-export const authRouter = express.Router();
+export const userRouter = Router();
 
-userRouter.get('/', getUsersHandler);
-userRouter.get('/:id', getUserHandler);
 userRouter.post('/', createUserHandler);
-
-authRouter.post('/', authHandler);
+userRouter.get('/', readUsersHandler);
+userRouter.get('/:id', readUserHandler);
+userRouter.delete('/:id', deleteUserHandler);
