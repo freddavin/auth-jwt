@@ -2,7 +2,7 @@ import 'express-async-errors';
 import express from 'express';
 import { logger } from '../winston';
 import { userRouter } from '../../routes';
-import { errorHandler } from '../../middlewares';
+import { errorHandler } from '../custom.errors';
 
 export const bootstrapExpress = (port: number) => {
   const app = express();
