@@ -1,7 +1,7 @@
 import { hash } from 'bcrypt';
 import { IUser, User } from '../../models/user';
 import { logger } from '../../libs/winston';
-import { BadRequestError, ConflictError } from '../../errors/app.error';
+import { BadRequestError, ConflictError } from '../../libs/custom.errors';
 
 export const createUserService = async (body: IUser) => {
   const { name, email, password } = body;

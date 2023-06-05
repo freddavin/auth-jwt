@@ -1,7 +1,7 @@
 import { Types } from 'mongoose';
-import { BadRequestError, NotFoundError } from '../../errors/app.error';
 import { logger } from '../../libs/winston';
 import { IUser, User } from '../../models/user';
+import { BadRequestError, NotFoundError } from '../../libs/custom.errors';
 
 export const updateUserService = async (
   params: Record<string, any>,

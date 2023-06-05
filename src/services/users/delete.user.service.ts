@@ -1,7 +1,7 @@
 import { Types } from 'mongoose';
-import { BadRequestError, NotFoundError } from '../../errors/app.error';
 import { logger } from '../../libs/winston';
 import { User } from '../../models/user';
+import { BadRequestError, NotFoundError } from '../../libs/custom.errors';
 
 export const deleteUserService = async (params: Record<string, any>) => {
   const { id } = params;

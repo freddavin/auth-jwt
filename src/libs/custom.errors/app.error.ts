@@ -10,26 +10,26 @@ export class AppError extends Error {
 
 export class HttpError extends AppError {
   public statusCode: number;
-  constructor(message: string, statusCode: number) {
-    super(message, GeneralErrorCode.ValidationError);
+  constructor(message: string, errorCode: string, statusCode: number) {
+    super(message, errorCode);
     this.statusCode = statusCode;
   }
 }
 
 export class BadRequestError extends HttpError {
   constructor(message: string) {
-    super(message, HttpStatusCode.BadRequest);
+    super(message, GeneralErrorCode.BadRequestError, HttpStatusCode.BadRequest);
   }
 }
 
 export class NotFoundError extends HttpError {
   constructor(message: string) {
-    super(message, HttpStatusCode.NotFound);
+    super(message, GeneralErrorCode.NotFoundError, HttpStatusCode.NotFound);
   }
 }
 
 export class ConflictError extends HttpError {
   constructor(message: string) {
-    super(message, HttpStatusCode.Conflict);
+    super(message, GeneralErrorCode.ConflictError, HttpStatusCode.Conflict);
   }
 }
