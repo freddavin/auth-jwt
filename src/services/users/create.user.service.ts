@@ -1,7 +1,7 @@
 import { hash } from 'bcrypt';
 import { IUser, User } from '../../models/user';
 import { logger } from '../../libs/winston';
-import { BadRequestError } from '../../errors/app.error';
+import { BadRequestError, ConflictError } from '../../errors/app.error';
 
 export const createUserService = async (body: IUser) => {
   const { name, email, password } = body;
@@ -13,7 +13,7 @@ export const createUserService = async (body: IUser) => {
   const userFound = await User.findOne({ email });
 
   if (userFound) {
-    throw new BadRequestError('User already exists');
+    throw new ConflictError('User already exists');
   }
 
   const hashPassword = await hash(password, 10);

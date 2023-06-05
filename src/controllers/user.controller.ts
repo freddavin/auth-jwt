@@ -4,6 +4,7 @@ import {
   listUserService,
   createUserService,
   deleteUserService,
+  updateUserService,
 } from '../services/users';
 import { logger } from '../libs/winston';
 import { HttpStatus } from '../errors/types/enums';
@@ -30,4 +31,10 @@ export const deleteUserHandler = async (req: Request, res: Response) => {
   const { params } = req;
   await deleteUserService(params);
   res.status(HttpStatus.NoContent).json();
+};
+
+export const updateUserHandler = async (req: Request, res: Response) => {
+  const { params, body } = req;
+  const result = await updateUserService(params, body);
+  res.status(HttpStatus.Ok).json(result);
 };
