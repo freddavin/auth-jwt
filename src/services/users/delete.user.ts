@@ -3,15 +3,15 @@ import { logger } from '../../libs/winston';
 import { User } from '../../models/user';
 import { BadRequestError, NotFoundError } from '../../libs/custom.errors';
 
-export const listUserService = async (params: Record<string, any>) => {
+export const deleteUser = async (params: Record<string, any>) => {
   const { id } = params;
   if (!Types.ObjectId.isValid(id)) {
     throw new BadRequestError('User id not valid');
   }
-  const userFound = await User.findById(id);
+  const userFound = await User.findByIdAndDelete(id);
   if (!userFound) {
-    throw new NotFoundError('User not found');
+    throw new NotFoundError('User not found to delete');
   }
-  logger.info('User found', { userFound });
+  logger.info('User deleted', { userFound });
   return userFound;
 };

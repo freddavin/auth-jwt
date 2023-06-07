@@ -3,7 +3,7 @@ import { IUser, User } from '../../models/user';
 import { logger } from '../../libs/winston';
 import { BadRequestError, ConflictError } from '../../libs/custom.errors';
 
-export const createUserService = async (body: IUser) => {
+export const createUser = async (body: IUser) => {
   const { name, email, password } = body;
 
   if (!name || !email || !password) {

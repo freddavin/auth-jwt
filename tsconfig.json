@@ -4,7 +4,7 @@
     "target": "ES6",
     "module": "commonjs",
     "resolveJsonModule": true,
-    "outDir": "dist",
+    "outDir": "./dist",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -23,6 +23,6 @@
     "noUnusedParameters": true,
     "noImplicitThis": true
   },
-  "include": ["src"],
-  "exclude": ["node_modules"]
+  "include": ["./src"],
+  "exclude": ["./node_modules"]
 }
