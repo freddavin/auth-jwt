@@ -6,7 +6,7 @@ import { endpointError, errorHandler } from '../custom.errors';
 
 let instance: any;
 
-const createServer = () => {
+export const createServer = () => {
   const app = express();
 
   app.use(express.json());
@@ -26,6 +26,6 @@ export const bootstrapExpress = (port: number) => {
 };
 
 export const disposeExpress = () => {
-  instance.close();
+  if (instance) instance.close();
   logger.info('🔥 [Express] Disposed');
 };

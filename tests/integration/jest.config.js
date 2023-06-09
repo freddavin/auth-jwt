@@ -6,7 +6,7 @@ module.exports = {
   ...rootConfig,
   rootDir: root,
   collectCoverage: false,
-  displayName: { name: 'INTEGRATION-TESTS', color: 'purple' },
+  displayName: { name: 'INTEGRATION-TESTS', color: 'blue' },
   testMatch: ['<rootDir>/tests/integration/**/*.test.ts'],
   setupFilesAfterEnv: ['<rootDir>/tests/integration/jest.setup.ts'],
 };
