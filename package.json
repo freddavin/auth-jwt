@@ -7,8 +7,9 @@
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
     "build": "tsc",
-    "test:unit": "jest --projects ./tests/unit --runInBand",
-    "test:integration": "jest --projects ./tests/integration --runInBand",
+    "jest": "jest --runInBand --detectOpenHandles --forceExit",
+    "test:unit": "yarn jest --projects ./tests/unit",
+    "test:integration": "yarn jest --projects ./tests/integration",
     "test": "yarn test:unit && yarn test:integration"
   },
   "dependencies": {
@@ -25,6 +26,7 @@
     "@types/express": "^4.17.17",
     "@types/jest": "^29.5.2",
     "jest": "^29.5.0",
+    "mongodb-memory-server": "^8.12.2",
     "ts-jest": "^29.1.0",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.1.3"
