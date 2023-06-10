@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import {
   listUsers,
-  listUser,
+  listUserById,
   createUser,
   deleteUser,
   updateUser,
@@ -23,7 +23,7 @@ export const readUsersHandler = async (_req: Request, res: Response) => {
 
 export const readUserHandler = async (req: Request, res: Response) => {
   const { params } = req;
-  const result = await listUser(params);
+  const result = await listUserById(params);
   res.status(HttpStatusCode.Ok).json(result);
 };
 
