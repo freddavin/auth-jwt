@@ -2,7 +2,7 @@
 
 Projeto com objetivo de exercitar e aplicar alguns dos meus aprendizados de desenvolvimento de software para backend utilizando programação funcional com arquitetura MSC (Model, Service e Controller).
 
-## Tecnologias utilizadas
+## Tecnologias/Bibliotecas utilizadas
 
 - Node.js
 - Typescript
@@ -11,12 +11,12 @@ Projeto com objetivo de exercitar e aplicar alguns dos meus aprendizados de dese
 - Winston
 - Node-Config
 - Bcrypt
-- Jsonwebtoken
 - Ajv
 - Jest
 
 ### A serem implementadas posteriormente
 
 - GraphQl
+- Jsonwebtoken
 
 ## Flow

@@ -2,7 +2,7 @@ import request from 'supertest';
 // import { Types } from 'mongoose';
 import { expressApp } from '../libs/express';
 import { IUser } from '../../src/models/user';
-import { listUser } from '../../src/services/users';
+import { listUserById } from '../../src/services/users';
 
 describe('User Controller - Integration Tests', () => {
   describe('Create User', () => {
@@ -28,7 +28,7 @@ describe('User Controller - Integration Tests', () => {
       const response = await request(expressApp).post(`/users`).send(user);
       const { id: resultId } = response.body;
 
-      const expectedUser = await listUser({ id: resultId });
+      const expectedUser = await listUserById({ id: resultId });
       expect(resultId).toEqual(expectedUser.id);
     });
   });
