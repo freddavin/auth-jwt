@@ -1,6 +1,6 @@
 # API REST with OAUTH
 
-Projeto com objetivo de exercitar e aplicar alguns dos meus aprendizados de desenvolvimento de software para backend utilizando arquitetura MSC (Model, Service e Controller).
+Projeto com objetivo de exercitar e aplicar alguns dos meus aprendizados de desenvolvimento de software para backend utilizando programação funcional com arquitetura MSC (Model, Service e Controller).
 
 ## Tecnologias utilizadas
 
@@ -12,6 +12,8 @@ Projeto com objetivo de exercitar e aplicar alguns dos meus aprendizados de dese
 - Node-Config
 - Bcrypt
 - Jsonwebtoken
+- Ajv
+- Jest
 
 ### A serem implementadas posteriormente
 
