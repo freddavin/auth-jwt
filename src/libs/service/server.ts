@@ -1,6 +1,6 @@
-import { bootstrapExpress, disposeExpress } from '../express';
-import { bootstrapMongoDb, disposeMongoDb } from '../mongodb';
-import { logger } from '../winston';
+import { bootstrapExpress, disposeExpress } from "../express";
+import { bootstrapMongoDb, disposeMongoDb } from "../mongodb";
+import { logger } from "../winston";
 
 export const server = async (port: number) => {
   try {
@@ -10,6 +10,6 @@ export const server = async (port: number) => {
     await bootstrapMongoDb();
     bootstrapExpress(port);
   } catch (e) {
-    logger.error('Something went wrong', { error: e });
+    logger.error("Something went wrong", { error: e });
   }
 };

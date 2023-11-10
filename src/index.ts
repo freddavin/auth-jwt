@@ -1,6 +1,7 @@
-import config from 'config';
-import { server } from './libs/service';
+import dotenv from "dotenv";
+import { server } from "./libs/service";
 
-const port = config.get<number>('API_PORT');
+dotenv.config();
+const port = Number(process.env.PORT) || 3000;
 
 server(port);

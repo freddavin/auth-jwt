@@ -1,16 +1,14 @@
-import mongoose from 'mongoose';
-import config from 'config';
-import { logger } from '../winston';
-
-const uri = config.get<string>('MONGODB_URI');
+import mongoose from "mongoose";
+import { logger } from "../winston";
 
 export const bootstrapMongoDb = async () => {
+  const uri = process.env.MONGODB_URI || "";
   await mongoose.connect(uri);
-  logger.info('🚀 [MongoDB] Bootstrapped');
+  logger.info("🚀 [MongoDB] Bootstrapped");
 };
 
 export const disposeMongoDb = async () => {
   await mongoose.disconnect();
   await mongoose.connection.close();
-  logger.info('🔥 [MongoDB] Disposed');
+  logger.info("🔥 [MongoDB] Disposed");
 };

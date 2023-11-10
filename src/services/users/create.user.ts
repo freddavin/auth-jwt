@@ -1,19 +1,19 @@
-import { hash } from 'bcrypt';
-import { IUser, User } from '../../models/user';
-import { logger } from '../../libs/winston';
-import { BadRequestError, ConflictError } from '../../libs/custom.errors';
+import { hash } from "bcrypt";
+import { IUser, User } from "../../models/user";
+import { logger } from "../../libs/winston";
+import { BadRequestError, ConflictError } from "../../libs/custom.errors";
 
-export const createUser = async (body: IUser) => {
-  const { name, email, password } = body;
+export const createUser = async (input: IUser) => {
+  const { name, email, password } = input;
 
   if (!name || !email || !password) {
-    throw new BadRequestError('Important data is not filled');
+    throw new BadRequestError("Important data is not filled");
   }
 
   const userFound = await User.findOne({ email });
 
   if (userFound) {
-    throw new ConflictError('User already exists');
+    throw new ConflictError("User already exists");
   }
 
   const hashPassword = await hash(password, 10);
@@ -26,7 +26,7 @@ export const createUser = async (body: IUser) => {
 
   const insertedUser = await User.create(user);
 
-  logger.info('User inserted into mongo', { insertedUser });
+  logger.info("User inserted into mongo", { insertedUser });
 
   return {
     id: insertedUser.id,

@@ -1,9 +1,8 @@
-import config from 'config';
-import { createLogger, format, transports } from 'winston';
-import { name, version } from '../../../package.json';
+import { createLogger, format, transports } from "winston";
+import { name, version } from "../../../package.json";
 
 const { combine, timestamp, prettyPrint } = format;
-const level = config.get<string>('LOG_LEVEL');
+const level = process.env.LOG_LEVEL;
 
 const myFormat = format((info) => {
   info.project = name;
@@ -15,7 +14,7 @@ export const logger = createLogger({
   level,
   format: combine(
     timestamp({
-      format: 'DD-MM-YYYY HH:mm:ss',
+      format: "DD-MM-YYYY HH:mm:ss",
     }),
     myFormat(),
     prettyPrint()
