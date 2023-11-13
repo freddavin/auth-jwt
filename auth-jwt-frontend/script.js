@@ -1,8 +1,8 @@
 const container = document.querySelector(".container");
 const pwShowHide = document.querySelectorAll(".showHidePw");
 const pwFields = document.querySelectorAll(".password");
-const signUp = document.querySelector(".signup-link");
-const login = document.querySelector(".login-link");
+const signUpLink = document.querySelector(".signup-link");
+const loginLink = document.querySelector(".login-link");
 
 pwShowHide.forEach((eyeIcon) => {
   eyeIcon.addEventListener("click", () => {
@@ -24,10 +24,30 @@ pwShowHide.forEach((eyeIcon) => {
   });
 });
 
-signUp.addEventListener("click", () => {
+signUpLink.addEventListener("click", () => {
   container.classList.add("active");
 });
 
-login.addEventListener("click", () => {
+loginLink.addEventListener("click", () => {
   container.classList.remove("active");
 });
+
+const login = () => {
+  const email = document.getElementById("loginEmail").value;
+  const password = document.getElementById("loginPw").value;
+
+  console.log({ email, password });
+
+  const xhttp = new XMLHttpRequest();
+  xhttp.open("POST", "http://localhost:5500/auth/login");
+  xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  xhttp.send(JSON.stringify({ email, password }));
+
+  xhttp.onreadystatechange = function () {
+    if (this.readyState === 4 && this.status === 200) {
+      const { token } = JSON.parse(this.response);
+      localStorage.setItem("token", token);
+      window.location.href = "./session.html";
+    }
+  };
+};

@@ -13,15 +13,21 @@
     <div class="container">
       <div class="forms">
         <div class="form login">
-          <span class="title">Signin</span>
+          <span class="title">Sign in</span>
 
-          <form action="#">
+          <form onsubmit="return login()">
             <div class="input-field">
-              <input type="text" placeholder="Enter your email" required />
+              <input
+                id="loginEmail"
+                type="text"
+                placeholder="Enter your email"
+                required
+              />
               <i class="uil uil-envelope"></i>
             </div>
             <div class="input-field">
               <input
+                id="loginPw"
                 type="password"
                 class="password"
                 placeholder="Enter your password"
@@ -32,18 +38,18 @@
             </div>
 
             <div class="input-field button">
-              <input type="button" value="Login" />
+              <input type="submit" value="Login" />
             </div>
           </form>
           <div class="login-signup">
             <span class="text">Not a member?</span>
-            <a href="#" class="text signup-link">Signup now</a>
+            <a href="#" class="text signup-link">Sign up now</a>
           </div>
         </div>
 
         <!-- Registration Form -->
         <div class="form signup">
-          <span class="title">Signup</span>
+          <span class="title">Sign up</span>
 
           <form action="#">
             <div class="input-field">
@@ -76,12 +82,12 @@
             </div>
 
             <div class="input-field button">
-              <input type="button" value="Login" />
+              <input type="button" value="Register" />
             </div>
           </form>
           <div class="login-signup">
             <span class="text">Already a member?</span>
-            <a href="#" class="text login-link">Signin now</a>
+            <a href="#" class="text login-link">Sign in now</a>
           </div>
         </div>
       </div>
