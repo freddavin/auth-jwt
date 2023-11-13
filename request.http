@@ -1,16 +1,19 @@
-GET http://localhost:4000/users HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NGVkYmFlZjI2MzI2NTkwYzEzZDU0YiIsIm5hbWUiOiJMYWxpbnkiLCJpYXQiOjE2OTk4ODU5NTV9._UL5FaHTCxe5zyWdrF1fSI1SEfdQQB0y2YFK_VSIeGY
+@URL = http://localhost:4000
+@TOKEN = Bearer {{login.response.body.token}} 
+
+GET {{URL}}/users HTTP/1.1
+Authorization: {{TOKEN}}
 
 ###
 
-GET http://localhost:4000/users/654edbaef26326590c13d54b HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NGVkYmFlZjI2MzI2NTkwYzEzZDU0YiIsIm5hbWUiOiJMYWxpbnkiLCJpYXQiOjE2OTk4ODU5NTV9._UL5FaHTCxe5zyWdrF1fSI1SEfdQQB0y2YFK_VSIeGY
+GET {{URL}}/users/654edbaef26326590c13d54b HTTP/1.1
+Authorization: {{TOKEN}}
 
 ###
 
-PATCH http://localhost:4000/users/654edbaef26326590c13d54b HTTP/1.1
+PATCH {{URL}}/users/654edbaef26326590c13d54b HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NGVkYmFlZjI2MzI2NTkwYzEzZDU0YiIsIm5hbWUiOiJMYWxpbnkiLCJpYXQiOjE2OTk4ODU5NTV9._UL5FaHTCxe5zyWdrF1fSI1SEfdQQB0y2YFK_VSIeGY
+Authorization: {{TOKEN}}
 
 {
 	"name": "Laliny Perezini"
@@ -18,13 +21,13 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NGVkYmFlZ
 
 ###
 
-DELETE http://localhost:4000/users/654edbaef26326590c13d54b HTTP/1.1
+DELETE {{URL}}/users/654edbaef26326590c13d54b HTTP/1.1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NGVkYmFlZjI2MzI2NTkwYzEzZDU0YiIsIm5hbWUiOiJMYWxpbnkiLCJpYXQiOjE2OTk4ODU5NTV9._UL5FaHTCxe5zyWdrF1fSI1SEfdQQB0y2YFK_VSIeGY
+Authorization: {{TOKEN}}
 
 ###
 
-POST http://localhost:4000/auth/register HTTP/1.1
+POST {{URL}}/auth/register HTTP/1.1
 Content-Type: application/json
 
 {
@@ -35,7 +38,8 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:4000/auth/login HTTP/1.1
+# @name login 
+POST {{URL}}/auth/login HTTP/1.1
 Content-Type: application/json
 
 {
