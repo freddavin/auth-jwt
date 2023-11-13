@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import { logger } from "../winston";
 
 export const bootstrapMongoDb = async () => {
-  const uri = process.env.MONGODB_URI || "";
+  const uri = process.env.MONGODB_URI!;
   await mongoose.connect(uri);
   logger.info("🚀 [MongoDB] Bootstrapped");
 };

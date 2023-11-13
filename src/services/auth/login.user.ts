@@ -27,7 +27,7 @@ export const loginUser = async (input: Partial<IUser>) => {
     throw new UnauthorizedError("Wrong password");
   }
 
-  const secret = process.env.SECRET || "";
+  const secret = process.env.SECRET!;
   const token = jwt.sign({ id: userFound.id, name: userFound.name }, secret);
 
   logger.info("User logged", { userFound });
