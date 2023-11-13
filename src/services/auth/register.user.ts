@@ -3,7 +3,7 @@ import { IUser, User } from "../../models/user";
 import { logger } from "../../libs/winston";
 import { BadRequestError, ConflictError } from "../../libs/custom.errors";
 
-export const createUser = async (input: IUser) => {
+export const registerUser = async (input: IUser) => {
   const { name, email, password } = input;
 
   if (!name || !email || !password) {

@@ -1,4 +1,4 @@
-import { GeneralErrorCode, HttpStatusCode } from './types/enums';
+import { GeneralErrorCode, HttpStatusCode } from "./types/enums";
 
 export class AppError extends Error {
   public errorCode: string = GeneralErrorCode.InternalServerError;
@@ -31,5 +31,15 @@ export class NotFoundError extends HttpError {
 export class ConflictError extends HttpError {
   constructor(message: string) {
     super(message, GeneralErrorCode.ConflictError, HttpStatusCode.Conflict);
+  }
+}
+
+export class UnauthorizedError extends HttpError {
+  constructor(message: string) {
+    super(
+      message,
+      GeneralErrorCode.UnauthorizedError,
+      HttpStatusCode.Unauthorized
+    );
   }
 }

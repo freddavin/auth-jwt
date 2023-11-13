@@ -11,6 +11,5 @@ API com objetivo de exercitar e aplicar alguns dos meus aprendizados em desenvol
 - winston
 - dotenv
 - bcrypt
-- ajv
 - jest
 - jsonwebtoken
