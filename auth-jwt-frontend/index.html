@@ -15,7 +15,7 @@
         <div class="form login">
           <span class="title">Sign in</span>
 
-          <form onsubmit="return login()">
+          <form>
             <div class="input-field">
               <input
                 id="loginEmail"
@@ -38,7 +38,7 @@
             </div>
 
             <div class="input-field button">
-              <input type="submit" value="Login" />
+              <input type="button" onclick="return login()" value="Login" />
             </div>
           </form>
           <div class="login-signup">

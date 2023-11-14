@@ -32,5 +32,5 @@ export const loginUser = async (input: Partial<IUser>) => {
 
   logger.info("User logged", { userFound });
 
-  return token;
+  return { id: userFound.id, token };
 };

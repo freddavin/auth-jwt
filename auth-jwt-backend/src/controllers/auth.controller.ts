@@ -24,7 +24,7 @@ export const loginHandler = async (req: Request, res: Response) => {
 
   const { email, password } = req.body;
 
-  const token = await loginUser({ email, password });
+  const response = await loginUser({ email, password });
 
-  return res.status(HttpStatusCode.Ok).json({ token });
+  return res.status(HttpStatusCode.Ok).json(response);
 };
