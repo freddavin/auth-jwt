@@ -32,25 +32,6 @@ loginLink.addEventListener("click", () => {
   container.classList.remove("active");
 });
 
-const loadSession = (id) => {
-  var token = localStorage.getItem("token");
-
-  const xhttp = new XMLHttpRequest();
-  xhttp.open("GET", `http://localhost:4000/users/${id}`);
-  xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-  xhttp.setRequestHeader("Authorization", "Bearer " + token);
-  xhttp.send();
-
-  xhttp.onreadystatechange = function () {
-    if (this.readyState === 4 && this.status === 200) {
-      const { name, email } = JSON.parse(this.response);
-      localStorage.setItem("username", name);
-      localStorage.setItem("email", email);
-      window.location.href = "./session.html";
-    }
-  };
-};
-
 const login = async function () {
   const email = document.getElementById("loginEmail").value;
   const password = document.getElementById("loginPw").value;
@@ -64,7 +45,7 @@ const login = async function () {
     if (this.readyState === 4 && this.status === 200) {
       const { token, id } = JSON.parse(this.response);
       localStorage.setItem("token", token);
-      loadSession(id);
+      window.location.href = "./session.html";
     }
   };
   return false;

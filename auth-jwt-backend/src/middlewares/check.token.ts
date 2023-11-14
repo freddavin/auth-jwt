@@ -11,7 +11,7 @@ export const checkToken = (
   const token = authorization?.split(" ")[1];
 
   if (!token) {
-    throw new BadRequestError("Invalid token");
+    throw new BadRequestError("Token is required");
   }
 
   try {

@@ -28,7 +28,9 @@ export const loginUser = async (input: Partial<IUser>) => {
   }
 
   const secret = process.env.SECRET!;
-  const token = jwt.sign({ id: userFound.id, name: userFound.name }, secret);
+  const token = jwt.sign({ id: userFound.id, name: userFound.name }, secret, {
+    expiresIn: "5m",
+  });
 
   logger.info("User logged", { userFound });
 
