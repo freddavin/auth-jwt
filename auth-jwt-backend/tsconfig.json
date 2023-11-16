@@ -22,7 +22,5 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitThis": true
-  },
-  "include": ["src", "tests"],
-  "exclude": ["node_modules", "dist"]
+  }
 }
